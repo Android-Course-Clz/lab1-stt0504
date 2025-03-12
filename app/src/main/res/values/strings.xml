@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lab1</string>
+    <string name="nickname">\@nickname</string>
+    <string name="username">Имя пользователя</string>
+    <string name="subscribe_text">Подписаться</string>
+    <string name="write_message_text">Написать сообщение</string>
+    <string name="stats">Подписчики: 100 • Подписки: 50 • Посты: 20</string>
+    <string name="post1_test">Текст поста</string>
+    <string name="post_text">Текст поста</string>
+</resources>
