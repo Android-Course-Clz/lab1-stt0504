@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Lab1</string>
-    <string name="nickname">\@nickname</string>
-    <string name="username">Имя пользователя</string>
-    <string name="subscribe_text">Подписаться</string>
     <string name="write_message_text">Написать сообщение</string>
-    <string name="stats">Подписчики: 100 • Подписки: 50 • Посты: 20</string>
-    <string name="post1_test">Текст поста</string>
     <string name="post_text">Текст поста</string>
+    <string name="profile_image_url">https://flomaster.top/uploads/posts/2023-01/thumbs/1673563853_flomaster-club-p-profil-risunok-vkontakte-35.jpg</string>
+    <string name="profile_name">Имя пользователя</string>
+    <string name="profile_nickname">\@nickname</string>
+    <string name="subscribe">Подписаться</string>
+    <string name="subscribed">Вы подписаны</string>
+    <string name="profile_stats">Подписчики: %1$d • Подписки: %2$d • Посты: %3$d</string>
 </resources>

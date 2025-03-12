@@ -10,4 +10,9 @@
     <color name="light_gray">#f9fafc</color>
     <color name="blue">#3688d7</color>
     <color name="gray">#808080</color>
+    <color name="background_color">#FFFFFF</color>
+    <color name="top_background">#F5F5F5</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#666666</color>
+    <color name="button_text">#0000FF</color>
 </resources>

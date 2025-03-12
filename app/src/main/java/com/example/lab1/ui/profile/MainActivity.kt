@@ -1,4 +1,5 @@
 package com.example.lab1.ui.profile
+
 import androidx.core.content.ContextCompat
 
 import android.os.Bundle
@@ -24,49 +25,57 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupProfile() {
         Glide.with(this)
-            .load("https://flomaster.top/uploads/posts/2023-01/thumbs/1673563853_flomaster-club-p-profil-risunok-vkontakte-35.jpg")
+            .load(getString(R.string.profile_image_url))
             .circleCrop()
             .into(binding.profileImageView)
 
-        binding.profileNameTextView.text = "Имя пользователя"
-        binding.profileNicknameTextView.text = "@nickname"
+        binding.profileNameTextView.text = getString(R.string.profile_name)
+        binding.profileNicknameTextView.text = getString(R.string.profile_nickname)
 
         var isSubscribed = false
-        var subscribersCount = 100
+        var subscribersCount = resources.getInteger(R.integer.default_subscribers)
 
         fun updateSubscribeButton() {
-            if (isSubscribed) {
-                binding.subscribeButton.text = "Вы подписаны"
-                binding.subscribeButton.setTextColor(ContextCompat.getColor(this, R.color.gray))
-            } else {
-                binding.subscribeButton.text = "Подписаться"
-                binding.subscribeButton.setTextColor(ContextCompat.getColor(this, R.color.blue))
-            }
-            binding.profileStatsTextView.text = "Подписчики: $subscribersCount • Подписки: 50 • Посты: 3"
+            binding.subscribeButton.text = getString(
+                if (isSubscribed) R.string.subscribed else R.string.subscribe
+            )
+            binding.subscribeButton.setTextColor(
+                ContextCompat.getColor(this, if (isSubscribed) R.color.gray else R.color.blue)
+            )
+            binding.profileStatsTextView.text = getString(
+                R.string.profile_stats,
+                subscribersCount,
+                resources.getInteger(R.integer.default_following),
+                resources.getInteger(R.integer.default_posts)
+            )
         }
 
         updateSubscribeButton()
 
         binding.subscribeButton.setOnClickListener {
             isSubscribed = !isSubscribed
-            if (isSubscribed) subscribersCount++ else subscribersCount--
+            subscribersCount += if (isSubscribed) 1 else -1
             updateSubscribeButton()
         }
 
-        binding.messageButton.setOnClickListener {
-        }
+        binding.messageButton.setOnClickListener {}
     }
+
 
     private fun setupRecyclerView() {
         binding.postsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.postsRecyclerView.adapter = postsAdapter
 
-        postsAdapter.submitList(
-            listOf(
-                Post("Первый пост", "https://i.pinimg.com/736x/01/db/f1/01dbf1cdaad1d95096dfae5b4af01d6f.jpg", 10, 2),
-                Post("Второй пост", "https://i.pinimg.com/736x/af/f5/a1/aff5a10fa331303b306c227a454530c7.jpg", 5, 1),
-                Post("Третий пост", "https://i.pinimg.com/736x/3a/06/f1/3a06f1101dec6506956519ad2bff2521.jpg", 15, 5)
-            )
-        )
+        val posts = resources.getStringArray(R.array.post_texts)
+        val images = resources.getStringArray(R.array.post_images)
+        val likes = resources.getIntArray(R.array.post_likes)
+        val comments = resources.getIntArray(R.array.post_comments)
+
+        val postList = posts.indices.map { index ->
+            Post(posts[index], images.getOrNull(index), likes[index], comments[index])
+        }
+
+        postsAdapter.submitList(postList)
     }
+
 }

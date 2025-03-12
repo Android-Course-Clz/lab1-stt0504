@@ -1,0 +1,25 @@
+<resources>
+    <string-array name="post_texts">
+        <item>Первый пост</item>
+        <item>Второй пост</item>
+        <item>Третий пост</item>
+    </string-array>
+
+    <string-array name="post_images">
+        <item>https://i.pinimg.com/736x/01/db/f1/01dbf1cdaad1d95096dfae5b4af01d6f.jpg</item>
+        <item>https://i.pinimg.com/736x/af/f5/a1/aff5a10fa331303b306c227a454530c7.jpg</item>
+        <item>https://i.pinimg.com/736x/3a/06/f1/3a06f1101dec6506956519ad2bff2521.jpg</item>
+    </string-array>
+
+    <integer-array name="post_likes">
+        <item>10</item>
+        <item>5</item>
+        <item>15</item>
+    </integer-array>
+
+    <integer-array name="post_comments">
+        <item>2</item>
+        <item>1</item>
+        <item>5</item>
+    </integer-array>
+</resources>

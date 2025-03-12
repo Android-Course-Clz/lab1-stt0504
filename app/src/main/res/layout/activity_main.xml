@@ -6,23 +6,21 @@
     android:id="@+id/activity_main_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/background_color">
 
     <View
         android:id="@+id/topBackgroundView"
         android:layout_width="match_parent"
         android:layout_height="113dp"
-        android:background="@color/light_gray"
-        app:layout_constraintHeight_percent="0.10"
+        android:background="@color/top_background"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"
         tools:ignore="MissingConstraints" />
 
     <View
         android:id="@+id/bottomBackgroundView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="@color/background_color"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintTop_toBottomOf="@id/topBackgroundView"/>
 
@@ -40,10 +38,10 @@
         android:id="@+id/profileNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/username"
+        android:text="@string/profile_name"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
+        android:textColor="@color/text_primary"
         app:layout_constraintTop_toBottomOf="@id/profileImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,9 +51,9 @@
         android:id="@+id/profileNicknameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nickname"
+        android:text="@string/profile_nickname"
         android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/text_secondary"
         app:layout_constraintTop_toBottomOf="@id/profileNameTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +63,9 @@
         android:id="@+id/profileStatsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stats"
+        android:text="@string/profile_stats"
         android:textSize="13sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/text_primary"
         app:layout_constraintTop_toBottomOf="@id/profileNicknameTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +85,7 @@
             android:id="@+id/subscribeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/subscribe_text"
+            android:text="@string/subscribe"
             android:textColor="@color/blue"
             android:background="@drawable/rounded_button"
             android:layout_marginEnd="16dp"
@@ -98,8 +96,7 @@
             android:stateListAnimator="@null"
             android:elevation="0dp"
             android:textAllCaps="false"
-            android:minWidth="180dp"
-        />
+            android:minWidth="180dp"/>
 
         <Button
             android:id="@+id/messageButton"
@@ -115,8 +112,7 @@
             android:stateListAnimator="@null"
             android:elevation="0dp"
             android:textAllCaps="false"
-            android:minWidth="180dp"
-            />
+            android:minWidth="180dp"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
