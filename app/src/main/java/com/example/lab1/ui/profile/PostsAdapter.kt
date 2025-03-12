@@ -3,10 +3,12 @@ package com.example.lab1.ui.profile
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.lab1.R
 import com.example.lab1.databinding.ItemPostBinding
 
 class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCallback()) {
@@ -36,16 +38,24 @@ class PostsAdapter : ListAdapter<Post, PostsAdapter.PostViewHolder>(PostDiffCall
                 binding.postImageView.visibility = View.GONE
             }
 
-            binding.likeButton.setOnClickListener {
-                post.likes++
+            var isLiked = false
+
+            fun updateLikeButton() {
+                val imageRes = if (isLiked) R.drawable.ic_like_filled else R.drawable.ic_like
+                binding.likeButton.setImageDrawable(ContextCompat.getDrawable(binding.root.context, imageRes))
                 binding.likeCountTextView.text = post.likes.toString()
             }
 
-            binding.commentButton.setOnClickListener {
-                post.comments++
-                binding.commentCountTextView.text = post.comments.toString()
+            updateLikeButton()
+
+            binding.likeButton.setOnClickListener {
+                isLiked = !isLiked
+                post.likes += if (isLiked) 1 else -1
+                updateLikeButton()
             }
 
+            binding.commentButton.setOnClickListener {
+            }
         }
     }
 
